@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "name": "lobster",
+        "discount": "10",
+        "image": "/assets/images/hongkong.jpg"
+    },
+    {
+        "id":5,
+        "name": "kilka",
+        "discount": "15",
+        "image": "/assets/images/kilka.jpg"
+    },
+    {
+        "id":3,
+        "name": "chicken frize",
+        "discount": "5",
+        "image": "/assets/images/chicken.jpg"
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "id":1,
+        "name": "lobster",
+        "price": 25,
+        "image": "/assets/images/labster.jpg",
+        "description":"it is a kind of crabs"
+    },
+    {
+        "id":6,
+        "name": "kilka",
+        "price": 30,
+        "image": "/assets/images/kilka.jpg",
+        "description":"small delicius fish"
+    },
+    {
+        "id":5,
+        "name": "smoti kiess",
+        "price": 16,
+        "image": "/assets/images/hongkong.jpg",
+        "description":"it is a sea food"
+    },
+    {
+        "id":3,
+        "name": "chicken frize",
+        "price": 15.5,
+        "image": "/assets/images/chicken.jpg",
+        "description":"spicy type and 5 slice"
+    },
+    {
+        "id":2,
+        "name": "pizza roste beaf",
+        "price": 18.6,
+        "image": "/assets/images/roste-beaf.jpg",
+        "description":"the popular pizza type"
+    },
+    {
+        "id":9,
+        "name": "pizza roste beaf",
+        "price": 18.6,
+        "image": "/assets/images/roste-beaf.jpg",
+        "description":"the popular pizza type"
+    }
+]
