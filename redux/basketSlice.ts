@@ -16,6 +16,7 @@ export const basketSlice = createSlice({
   initialState,
   reducers: {
     open: (state) => {
+      
       state.status = true
     },
     close: (state) => {

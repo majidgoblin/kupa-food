@@ -7,12 +7,14 @@ import { RootState } from "../store";
 import CartBox from "@/components/cart/cartBox";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useCart } from "@/zustand/cart";
 
 const Cart: NextPage = () => {
 
     const [cartCount, setCount] = useState<number>(0)
 
-    const items = useSelector((state: RootState) => state.cart.items);
+    // const items = useSelector((state: RootState) => state.cart.items);
+    const items = useCart((state) => state.items);
 
     useEffect(() => {
         if (!!items && items[0].id !== 0)
@@ -34,7 +36,6 @@ const Cart: NextPage = () => {
                                     id={row.id}
                                     totalPrice={row.totalPrice}
                                     amount={row.amount}
-                                    price={row.price}
                                     title={row.title}
                                     image={row.image}
                                     key={row.id}

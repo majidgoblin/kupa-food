@@ -7,36 +7,21 @@ import { FC, useState } from "react"
 import { RootState } from "@/app/store"
 import { addItem, decreaseItem, deleteItem } from "@/redux/cartSlice"
 import { ISate } from "@/types/product"
+import { useCart } from "@/zustand/cart"
 
-const CartBox: FC<ISate> = ({ id, amount, price, totalPrice, title, image }) => {
+const CartBox: FC<ISate> = ({ id, amount, totalPrice, title, image }) => {
 
-    // const [totalPrice, setTotalPrice] = useState<number>(0);
-    const [itemAmount, setAmount] = useState<number>(1);
-
-    const state = useSelector((state: RootState) => state.basket);
-    const items = useSelector((state: RootState) => state.cart);
-    const dispatch = useDispatch();
+    const cart = useCart((state) => state);
 
     const handleAdd = () => {
-        dispatch(addItem(id))
-        // let newPrice = totalPrice;
-        // let count = itemAmount + 1;
-        // setTotalPrice(newPrice);
-        // setAmount(count);
+        cart.addItem(id)
     };
 
     const handleDecrise = () => {
-        if (amount > 1) {
-            dispatch(decreaseItem(id))
-            // let count = itemAmount - 1;
-            // let newPrice = totalPrice;
-            // setTotalPrice(newPrice);
-            // setAmount(count);
-        }
+        if (amount > 1)
+            cart.decreaseItem(id)
         else
-        {
-            dispatch(deleteItem(id))
-        }
+            cart.deleteItem(id)
     };
 
     return (

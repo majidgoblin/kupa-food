@@ -1,11 +1,13 @@
 "use client"
 
 import { RootState } from "@/app/store"
+import { useCart } from "@/zustand/cart"
 import { useSelector } from "react-redux"
 
 const SummaryBox = () => {
 
-    const items = useSelector((state: RootState) => state.cart.items);
+    // const items = useSelector((state: RootState) => state.cart.items);
+    const items = useCart((state) => state.items);
 
     let lastPrice = 0;
     for (let i = 0; i < items.length; i++) {

@@ -7,6 +7,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { RootState } from "@/app/store"
+import { useCart } from "@/zustand/cart"
 
 const NavigationBar = () => {
 
@@ -16,7 +17,8 @@ const NavigationBar = () => {
     const [cartActive, setCart] = useState<boolean>(false);
     const [cartCount, setCount] = useState<number>(0)
 
-    const items = useSelector((state: RootState) => state.cart.items);
+    // const items = useSelector((state: RootState) => state.cart.items)
+    const items = useCart((state) => state.items);;
 
     useEffect(() => {
         if (!!items && items[0].id !== 0)
@@ -56,7 +58,7 @@ const NavigationBar = () => {
     }
 
     return (
-        <div className="fixed bg-gray-300 bottom-0 w-full left-0 flex align-text-top justify-around py-2 text-center">
+        <div className="fixed z-10 bg-gray-300 bottom-0 w-full left-0 flex align-text-top justify-around py-2 text-center">
             <Link onClick={() => handleClick('home')} href='/'
                 className={homeActive ? 'text-green-500' : 'text-gray-500'}>
                 <TiHome style={{ marginLeft: '5px' }} size={20} />

@@ -17,6 +17,7 @@ import SearchBox from "@/components/search";
 import Basket from "@/components/basket";
 import NavigationBar from "@/components/navigationBar";
 import { useEffect, useState } from "react";
+import { useBasket } from "@/zustand/basket";
 
 const Home: NextPage = () => {
 
@@ -32,7 +33,10 @@ const Home: NextPage = () => {
     queryFn: () => fetch('/api/homeDiscount.json').then(rest => rest.json())
   })
 
-  const status = useSelector((state: RootState) => state.basket.status);
+  // const status = useSelector((state: RootState) => state.basket.status);
+
+    const status = useBasket((state) => state.status)
+    console.log(status,"usdfsfs")
 
   return (
     <main className="relative">

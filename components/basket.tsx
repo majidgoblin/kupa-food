@@ -9,8 +9,15 @@ import { close } from "@/redux/basketSlice";
 import { IBasket, IProduct } from "@/types/product";
 import { addToCart } from "@/redux/cartSlice";
 import AmountButton from "./amountBtn";
+import { useBasket } from "@/zustand/basket";
+import { IItem, useCart } from "@/zustand/cart";
 
 const Basket: FC<IBasket> = ({ products }) => {
+
+    //with zustand
+    const closeBasket = useBasket((state) => state.close);
+    const state = useBasket((state) => state);
+    const items = useCart((state) => state);
 
     const [like, disLike] = useState<boolean>(false)
     const [totalPrice, setTotalPrice] = useState<number>(0)
@@ -22,20 +29,25 @@ const Basket: FC<IBasket> = ({ products }) => {
         description: '',
     }])
 
-    const state = useSelector((state: RootState) => state.basket)
-    const dispatch = useDispatch()
+    // const state = useSelector((state: RootState) => state.basket)
+    // const dispatch = useDispatch()
 
-    //bug here
     useEffect(() => {
         if (state.id !== 0) {
-            const data = products?.filter(({ id }) => id === state.id);
-            setProduct(data);
-            setTotalPrice(data[0].price);
+            const data = products?.filter(({ id }) => id === state.id) ?? [];
+            if (data.length > 0) {
+                setProduct(data);
+                setTotalPrice(data[0].price);
+            } else {
+                setProduct([]);
+                setTotalPrice(0);
+            }
         }
-    }, [state.id])
+    }, [state.id, products])
 
     const handleClose = () => {
-        dispatch(close());
+        // dispatch(close());
+        closeBasket();
         setAmount(1);
         setTotalPrice(0);
     }
@@ -57,7 +69,7 @@ const Basket: FC<IBasket> = ({ products }) => {
     }
 
     const handleAddToCart = () => {
-        const params = {
+        const params: IItem = {
             id: product[0].id,
             price: product[0].price,
             title: product[0].name,
@@ -65,10 +77,12 @@ const Basket: FC<IBasket> = ({ products }) => {
             amount,
             totalPrice,
         };
-        dispatch(addToCart(params));
+        items.addToCart(params)
+        // dispatch(addToCart(params));
         setAmount(1);
         setTotalPrice(0);
-        dispatch(close());
+        state.close()
+        // dispatch(close());
     }
 
     const handleSause = (event: ChangeEvent<HTMLInputElement>) => {
@@ -125,17 +139,17 @@ const Basket: FC<IBasket> = ({ products }) => {
                 <span className="text-xl font-bold text-gray-700 block my-3">Add a Topping?</span>
                 <div className="rounded-lg border-2 border-solid">
                     <div className="p-2  border-b-2 border-solid">
-                        <input type="checkbox" onChange={(e) => handleTopping(e,3)} />
+                        <input type="checkbox" onChange={(e) => handleTopping(e, 3)} />
                         <span className="inline-block text-gray-700 font-bold ml-3">Bread</span>
                         <span className="float-right  text-gray-700 font-bold ">$3</span>
                     </div>
                     <div className="p-2  border-b-2 border-solid">
-                        <input type="checkbox" onChange={(e) => handleTopping(e,5)} />
+                        <input type="checkbox" onChange={(e) => handleTopping(e, 5)} />
                         <span className="inline-block text-gray-700 font-bold ml-3">Cheese</span>
                         <span className="float-right  text-gray-700 font-bold ">$5</span>
                     </div>
                     <div className="p-2 ">
-                        <input type="checkbox" onChange={(e) => handleTopping(e,7)} />
+                        <input type="checkbox" onChange={(e) => handleTopping(e, 7)} />
                         <span className="inline-block text-gray-700 font-bold ml-3">Mashroom</span>
                         <span className="float-right  text-gray-700 font-bold ">$7</span>
                     </div>

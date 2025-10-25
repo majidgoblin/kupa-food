@@ -23,5 +23,5 @@ export interface ISate {
     id?: number;
     title: string,
     image: string,
-    price:number
+    price?:number
 };

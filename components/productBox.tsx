@@ -3,14 +3,16 @@ import { IProduct } from "@/types/product"
 import Image from "next/image"
 import { useDispatch } from "react-redux"
 import { open, productId } from "@/redux/basketSlice"
+import { useBasket } from "@/zustand/basket"
 
 const ProductBox: FC<IProduct> = ({ id, image, price, name }) => {
 
-    const dispatch = useDispatch()
+    const open = useBasket((state) => state.open);
+    const setProductId = useBasket(s => s.productId)
 
     const handleClick = () => {
-        dispatch(open())
-        dispatch(productId(id))
+        setProductId(id)
+        open()
     }
 
     return (
@@ -20,6 +22,7 @@ const ProductBox: FC<IProduct> = ({ id, image, price, name }) => {
             <span className="block text-md font-bold text-green-500">${price}</span>
         </div>
     )
+
 }
 
 export default ProductBox
