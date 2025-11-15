@@ -38,7 +38,7 @@ export const cartSlice = createSlice({
             state.items.map(row => {
                 if (row.id === action.payload) {
                     row.amount++;
-                    row.totalPrice = row.totalPrice + row.price;
+                    row.totalPrice = row.totalPrice + (row.price ?? 0);
                 }
             })
         },
@@ -46,7 +46,7 @@ export const cartSlice = createSlice({
             state.items.map(row => {
                 if (row.id === action.payload) {
                     row.amount--;
-                    row.totalPrice = row.totalPrice - row.price;
+                    row.totalPrice = row.totalPrice - (row.price ?? 0);
                 }
             })
         },
