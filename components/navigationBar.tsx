@@ -5,8 +5,6 @@ import { TiHome } from "react-icons/ti"
 import { IoDocumentText, IoPerson, IoCart } from "react-icons/io5"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import { RootState } from "@/app/store"
 import { useCart } from "@/zustand/cart"
 
 const NavigationBar = () => {

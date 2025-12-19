@@ -1,8 +1,6 @@
 import { FC } from "react"
 import { IProduct } from "@/types/product"
 import Image from "next/image"
-import { useDispatch } from "react-redux"
-import { open, productId } from "@/redux/basketSlice"
 import { useBasket } from "@/zustand/basket"
 
 const ProductBox: FC<IProduct> = ({ id, image, price, name }) => {

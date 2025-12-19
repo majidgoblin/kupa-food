@@ -1,11 +1,8 @@
 'use client'
 
 import Image from "next/image"
-import { useDispatch, useSelector } from "react-redux"
 import AmountButton from "../amountBtn"
 import { FC, useState } from "react"
-import { RootState } from "@/app/store"
-import { addItem, decreaseItem, deleteItem } from "@/redux/cartSlice"
 import { ISate } from "@/types/product"
 import { useCart } from "@/zustand/cart"
 

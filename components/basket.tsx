@@ -2,12 +2,8 @@
 
 import { ChangeEvent, FC, useEffect, useState } from "react";
 import Image from "next/image";
-import { useDispatch, useSelector } from "react-redux";
 import { IoMdHeart, IoMdHeartEmpty, IoMdClose } from "react-icons/io";
-import { RootState } from "@/app/store";
-import { close } from "@/redux/basketSlice";
 import { IBasket, IProduct } from "@/types/product";
-import { addToCart } from "@/redux/cartSlice";
 import AmountButton from "./amountBtn";
 import { useBasket } from "@/zustand/basket";
 import { IItem, useCart } from "@/zustand/cart";

@@ -11,8 +11,6 @@ import 'swiper/css/pagination';
 import { IDiscount, IProduct } from "../types/product";
 import HomeDiscounts from "@/components/home/discountsBox";
 import AddressBox from "@/components/addressBox";
-import { useSelector } from "react-redux";
-import { RootState } from "./store";
 import SearchBox from "@/components/search";
 import Basket from "@/components/basket";
 import NavigationBar from "@/components/navigationBar";

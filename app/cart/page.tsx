@@ -2,8 +2,6 @@
 
 import { NextPage } from "next"
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../store";
 import CartBox from "@/components/cart/cartBox";
 import { useRouter } from "next/router";
 import Link from "next/link";
