@@ -152,7 +152,7 @@ const Basket: FC<IBasket> = ({ products }) => {
                 </div>
             </div>
             <button onClick={handleAddToCart} className={` ${state.status === true ? `fixed bottom-5` : `hidden`} w-[88%]  mb-5 py-3
-             text-gray-50 bg-green-500 rounded-md text-center`}>
+             text-gray-50 bg-[#EC3F19] rounded-md text-center`}>
                 Add to Cart (${totalPrice})
             </button>
         </div>

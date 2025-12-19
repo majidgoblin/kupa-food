@@ -3,6 +3,7 @@ import "./globals.css";
 import Head from "next/head";
 import { ReactQueryClientProvider } from "./reactQueryProvider";
 import RootBody from "./rootBody";
+import { inter } from './font' // یا هر مسیری که فایل بالا رو گذاشتی
 
 
 export const metadata: Metadata = {
@@ -17,14 +18,14 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" 
+    <html  lang="en" 
     
     className="bg-white xl:w-[412px] lg:w-[412px] md:w-[412px]">
       <Head>
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <ReactQueryClientProvider>
-        <body className='bg-white p-0 m-0 h-fit '>
+        <body className={`bg-white p-0 m-0 h-fit ${inter.className}`}>
           <RootBody>
             {children}
           </RootBody>

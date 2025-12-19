@@ -20,7 +20,7 @@ const AmountButton: FC<IProps> = ({ handleDecrise, amount, handleAdd, totalPrice
                     </div>
                     <span>{amount}</span>
                     <div
-                        className="rounded-full bg-green-500 flex 
+                        className="rounded-full bg-[#EC3F19] flex 
                                     justify-center items-center cursor-pointer  w-[25px] h-[25px] text-white">
                         <span onClick={handleAdd} className="font-xl">+</span>
                     </div>

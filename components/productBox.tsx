@@ -17,7 +17,7 @@ const ProductBox: FC<IProduct> = ({ id, image, price, name }) => {
         <div className="text-left" onClick={handleClick}>
             <Image alt="kupa" src={image} width={100} height={100} className="rounded-md w-[130px] h-[130px]" />
             <span className="block text-sm font-bold text-gray-800 my-1">{name}</span>
-            <span className="block text-md font-bold text-green-500">${price}</span>
+            <span className="block text-md font-bold text-[#EC3F19]">${price}</span>
         </div>
     )
 

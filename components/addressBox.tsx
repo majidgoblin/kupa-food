@@ -3,7 +3,7 @@ import { FaChevronRight } from "react-icons/fa";
 
 const AddressBox = () => {
     return (
-        <div className="rounded-md flex items-center justify-between bg-green-500 p-4 mt-6 shadow-lg">
+        <div className="rounded-md flex items-center justify-between bg-[#EC3F19] p-4 mt-6 shadow-lg">
             <div>
                 <span className="block text-gray-300 font-bold">Delivery to home</span>
                 <span className="block text-gray-300 mb-2">ultra state , simon Avu , no 23</span>

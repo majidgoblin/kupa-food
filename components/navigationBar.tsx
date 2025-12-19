@@ -58,7 +58,7 @@ const NavigationBar = () => {
     return (
         <div className="fixed z-10 bg-gray-300 bottom-0 w-full left-0 flex align-text-top justify-around py-2 text-center">
             <Link onClick={() => handleClick('home')} href='/'
-                className={homeActive ? 'text-green-500' : 'text-gray-500'}>
+                className={homeActive ? 'text-[#EC3F19]' : 'text-gray-500'}>
                 <TiHome style={{ marginLeft: '5px' }} size={20} />
                 <span className="font-bold text-xs">Home</span>
             </Link>

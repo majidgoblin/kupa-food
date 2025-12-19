@@ -40,7 +40,7 @@ const Cart: NextPage = () => {
                                 />
                             })}
                         </div>
-                        <button  className="w-[90%]  fixed bottom-10 mb-10 py-3 text-gray-50 bg-green-500 rounded-md text-center">
+                        <button  className="w-[90%]  fixed bottom-10 mb-10 py-3 text-gray-50 bg-[#EC3F19] rounded-md text-center">
                             <Link  href="/confirm" >Order</Link>
                         </button>
                     </div>
