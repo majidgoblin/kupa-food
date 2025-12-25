@@ -13,18 +13,18 @@ const SummaryBox = () => {
 
     return (
         <div className="bg-green-50 rounded-md mt-5 p-3">
-            <span className="font-bold block my-3 text-[#EC3F19]">Summary</span>
+            <span className="font-bold block my-3 text-primary">Summary</span>
             <div className="py-1">
-                <span className="text-[#EC3F19]">price</span>
-                <span className="float-right font-bold text-[#EC3F19]">${lastPrice}</span>
+                <span className="text-primary">price</span>
+                <span className="float-right font-bold text-primary">${lastPrice}</span>
             </div>
             <div className="py-2 ">
-                <span className="text-[#EC3F19]">shipping</span>
-                <span className="float-right font-bold text-[#EC3F19]">2$</span>
+                <span className="text-primary">shipping</span>
+                <span className="float-right font-bold text-primary">2$</span>
             </div>
             <div className="pt-4 pb-2 border-t-2 border-gray-900">
-                <span className="text-[#EC3F19]">Total payment</span>
-                <span className="float-right font-bold text-[#EC3F19]">${lastPrice + 2}</span>
+                <span className="text-primary">Total payment</span>
+                <span className="float-right font-bold text-primary">${lastPrice + 2}</span>
             </div>
         </div>
     )

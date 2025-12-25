@@ -18,14 +18,12 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html  lang="en" 
-    
-    className="bg-white xl:w-[412px] lg:w-[412px] md:w-[412px]">
+    <html  lang="en" className="xl:w-[412px] lg:w-[412px] md:w-[412px]">
       <Head>
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <ReactQueryClientProvider>
-        <body className={`bg-white p-0 m-0 h-fit ${inter.className}`}>
+        <body className={`!bg-background  p-0 m-0 h-svh ${inter.className}`}>
           <RootBody>
             {children}
           </RootBody>

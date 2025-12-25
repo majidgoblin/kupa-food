@@ -12,6 +12,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
+        "layar": "url('/assets/images/layar.jpg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
@@ -21,6 +22,13 @@ const config: Config = {
         current: 'currentColor',
         black: colors.black,
         white: colors.white,
+        primary:"#FF7000",
+        secondary:"#6DC54A",
+        background:"#F6F6F6",
+        txt:{
+          primary:"#373737",
+          secondary:"#838383"
+        },
         gray: {
           600:'#4A5568',
           500:'#718096',
@@ -49,7 +57,7 @@ const config: Config = {
         },
         indigo: colors.indigo,
         red: '#FF0000',
-        yellow: colors.amber,
+        yellow: "#FFD200",
       },
       
     },
