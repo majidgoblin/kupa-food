@@ -4,18 +4,17 @@ import ProductBox from "@/components/productBox";
 import { useQuery } from "@tanstack/react-query";
 import { NextPage } from "next";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, FreeMode } from "swiper/modules";
+import {  FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { IDiscount, IProduct } from "../types/product";
-import HomeDiscounts from "@/components/home/discountsBox";
 import AddressBox from "@/components/addressBox";
 import SearchBox from "@/components/search";
 import Basket from "@/components/basket";
 import NavigationBar from "@/components/navigationBar";
-import { useEffect, useState } from "react";
 import { useBasket } from "@/zustand/basket";
+import Menu from "@/components/home/Menu";
 
 const Home: NextPage = () => {
   //get home products
@@ -37,7 +36,7 @@ const Home: NextPage = () => {
       <div
         className="
           relative
-          h-[160px]
+          h-[100px]
           w-full
           rounded-br-[3rem]
           rounded-bl-[3rem]
@@ -54,34 +53,13 @@ const Home: NextPage = () => {
           before:opacity-20
         "
       >
-        <div className="relative z-10 text-center p-5 mt-7">
+        <div className="relative z-10 text-center p-5 mt-3">
           <SearchBox />
         </div>
       </div>
       <div className={status ? `bg-gray-800 bg-opacity-30 px-5` : ` px-5`}>
         <AddressBox />
-        <HomeDiscounts />
-        {/* <Swiper
-          slidesPerView={2.5}
-          spaceBetween={30}
-          effect={"fade"}
-          pagination={{
-            clickable: false,
-          }}
-          modules={[EffectFade]}
-        >
-          {discountData?.map((row: IDiscount) => {
-            return (
-              <SwiperSlide key={row.id}>
-                <HomeDiscounts
-                  name={row.name}
-                  discount={row.discount}
-                  image={row.image}
-                />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper> */}
+        <Menu />
         <span className="font-bold block text-gray-800 text-xl my-6">
           Top of Week
         </span>

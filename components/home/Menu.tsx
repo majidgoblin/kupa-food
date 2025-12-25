@@ -7,7 +7,7 @@ import clsx from "clsx";
 
 type Category = "all" | "pizza" | "burger" | "cafe";
 
-const HomeDiscounts = () => {
+const Menu = () => {
   const [active, setActive] = useState<Category>("all");
 
   const items = [
@@ -18,7 +18,7 @@ const HomeDiscounts = () => {
   ] as const;
 
   return (
-    <ul className="flex items-center justify-between mt-8 px-6">
+    <ul className="flex items-center justify-between mt-6 px-6">
       {items.map(({ id, label, icon: Icon }) => {
         const isActive = active === id;
 
@@ -58,4 +58,4 @@ const HomeDiscounts = () => {
   );
 };
 
-export default HomeDiscounts;
+export default Menu;
