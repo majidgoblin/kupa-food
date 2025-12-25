@@ -38,8 +38,8 @@ const Home: NextPage = () => {
           relative
           h-[100px]
           w-full
-          rounded-br-[3rem]
-          rounded-bl-[3rem]
+          rounded-br-[2rem]
+          rounded-bl-[2rem]
           overflow-hidden
           bg-yellow
 
