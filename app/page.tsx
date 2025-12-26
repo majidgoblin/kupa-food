@@ -15,7 +15,7 @@ import Basket from "@/components/basket";
 import NavigationBar from "@/components/navigationBar";
 import { useBasket } from "@/zustand/basket";
 import Menu from "@/components/home/Menu";
-import RestaurantBox from "@/components/RestaurantBox";
+import RestaurantBox from "@/components/restaurantBox";
 
 const Home: NextPage = () => {
   //get home products
