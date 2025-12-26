@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Head from "next/head";
 import { ReactQueryClientProvider } from "./reactQueryProvider";
 import RootBody from "./rootBody";
-import { inter } from './font' // یا هر مسیری که فایل بالا رو گذاشتی
-
+import { inter } from "./font"; 
+import NavigationBar from "@/components/navigationBar";
 
 export const metadata: Metadata = {
   title: "Kupa food",
@@ -16,19 +15,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
-    <html  lang="en" className="xl:w-[412px] lg:w-[412px] md:w-[412px]">
-      <Head>
-        <link rel="manifest" href="/manifest.json" />
-      </Head>
-      <ReactQueryClientProvider>
-        <body className={`!bg-background  p-0 m-0 h-svh ${inter.className}`}>
+    <html lang="en">
+      <body className={`bg-white h-svh ${inter.className}`}>
+        <ReactQueryClientProvider>
           <RootBody>
-            {children}
+            <div className="!bg-background pb-16">{children}</div>
+            <NavigationBar />
           </RootBody>
-        </body>
-      </ReactQueryClientProvider>
+        </ReactQueryClientProvider>
+      </body>
     </html>
   );
 }

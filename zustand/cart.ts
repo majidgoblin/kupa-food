@@ -18,18 +18,9 @@ interface CartState {
 }
 
 export const useCart = create<CartState>((set) => ({
-  items: [
-    {
-      id: 0,
-      title: "",
-      image: "",
-      price: 0,
-      amount: 0,
-      totalPrice: 0,
-    },
-  ],
+  items: [],
 
-  // ➕ اضافه کردن محصول جدید
+  // add new item to basket
   addToCart: (item) =>
     set((state) => {
       const newItem = {
@@ -48,11 +39,11 @@ export const useCart = create<CartState>((set) => ({
       }
     }),
 
-  // 🔼 افزایش تعداد محصول
+  // increse items
   addItem: (id) =>
     set((state) => ({
       items: state.items.map((row) => {
-        if (row.id === id) {
+        if (row?.id === id) {
           const amount = row.amount + 1;
           const totalPrice = row.totalPrice + row.price;
           return { ...row, amount, totalPrice };
@@ -61,11 +52,11 @@ export const useCart = create<CartState>((set) => ({
       }),
     })),
 
-  // 🔽 کاهش تعداد محصول
+  // decrise items
   decreaseItem: (id) =>
     set((state) => ({
       items: state.items.map((row) => {
-        if (row.id === id) {
+        if (row?.id === id) {
           const amount = row.amount - 1;
           const totalPrice = row.totalPrice - row.price;
           return { ...row, amount, totalPrice };
@@ -74,10 +65,10 @@ export const useCart = create<CartState>((set) => ({
       }),
     })),
 
-  // ❌ حذف محصول از سبد
+  // delete item
   deleteItem: (id) =>
     set((state) => {
-      const filtered = state.items.filter((row) => row.id !== id);
+      const filtered = state.items.filter((row) => row?.id !== id);
       if (filtered.length === 0) {
         return {
           items: [

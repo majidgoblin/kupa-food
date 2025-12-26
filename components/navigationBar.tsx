@@ -1,84 +1,42 @@
+"use client";
 
-"use client"
-
-import { TiHome } from "react-icons/ti"
-import { IoDocumentText, IoPerson, IoCart } from "react-icons/io5"
-import Link from "next/link"
-import { useEffect, useState } from "react"
-import { useCart } from "@/zustand/cart"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useCart } from "@/zustand/cart";
+import clsx from "clsx";
+import { navItems } from "@/consts/routes";
 
 const NavigationBar = () => {
+  const pathname = usePathname();
+  const items = useCart((state) => state.items);
 
-    const [homeActive, setHome] = useState<boolean>(true);
-    const [menuActive, setMenu] = useState<boolean>(false);
-    const [profileActive, setProfile] = useState<boolean>(false);
-    const [cartActive, setCart] = useState<boolean>(false);
-    const [cartCount, setCount] = useState<number>(0)
+  const cartCount = items?.length ?? 0;
 
-    // const items = useSelector((state: RootState) => state.cart.items)
-    const items = useCart((state) => state.items);;
+  return (
+   <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 z-10 w-full max-w-[412px] bg-white flex justify-around py-3">
+      {navItems.map(({ id, href, label, icon: Icon }) => {
+        const isActive =
+          href === "/" ? pathname === "/" : pathname.startsWith(href);
 
-    useEffect(() => {
-        if (!!items && items[0].id !== 0)
-            setCount(items.length)
-    }, [items])
+        return (
+          <Link
+            key={id}
+            href={href}
+            className={clsx(
+              "flex flex-col items-center text-xs font-bold transition-colors",
+              isActive ? "text-primary" : "text-gray-500"
+            )}
+          >
+            <Icon size={20} className="" />
+            <span>
+              {label}
+              {id === "cart" && cartCount > 0 && ` (${cartCount})`}
+            </span>
+          </Link>
+        );
+      })}
+    </nav>
+  );
+};
 
-
-    const handleClick = (id: string) => {
-        switch (id) {
-            case 'home':
-                setHome(true)
-                setProfile(false)
-                setMenu(false)
-                setCart(false)
-                break;
-            case 'menu':
-                setHome(false)
-                setProfile(false)
-                setMenu(true)
-                setCart(false)
-                break;
-            case 'profile':
-                setHome(false)
-                setProfile(true)
-                setMenu(false)
-                setCart(false)
-                break;
-            case 'cart':
-                setHome(false)
-                setProfile(false)
-                setMenu(false)
-                setCart(true)
-                break;
-            default:
-                break;
-        }
-    }
-
-    return (
-        <div className="fixed z-10 bg-gray-300 bottom-0 w-full left-0 flex align-text-top justify-around py-2 text-center">
-            <Link onClick={() => handleClick('home')} href='/'
-                className={homeActive ? 'text-primary' : 'text-gray-500'}>
-                <TiHome style={{ marginLeft: '5px' }} size={20} />
-                <span className="font-bold text-xs">Home</span>
-            </Link>
-            <Link onClick={() => handleClick('menu')} href='/menu'
-                className={menuActive ? 'text-green-600' : 'text-gray-500'}>
-                <IoDocumentText style={{ marginLeft: '5px' }} size={20} />
-                <span className="font-bold text-xs">Menu</span>
-            </Link>
-            <Link onClick={() => handleClick('cart')} href='/cart'
-                className={cartActive ? 'text-green-600' : 'text-gray-500'}>
-                <IoCart style={{ marginLeft: '2px' }} size={20} />
-                <span className="font-bold text-xs ">Cart { items[0].id !== 0 ? `(${cartCount})` : ''}</span>
-            </Link>
-            <Link onClick={() => handleClick('profile')} href=''
-                className={profileActive ? 'text-green-600' : 'text-gray-500'}>
-                <IoPerson style={{ marginLeft: '6px' }} size={20} />
-                <span className="font-bold text-xs">Profile</span>
-            </Link>
-        </div>
-    )
-}
-
-export default NavigationBar
+export default NavigationBar;

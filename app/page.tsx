@@ -12,9 +12,7 @@ import { IDiscount, IProduct } from "../types/product";
 import AddressBox from "@/components/addressBox";
 import SearchBox from "@/components/search";
 import Basket from "@/components/basket";
-import NavigationBar from "@/components/navigationBar";
 import { useBasket } from "@/zustand/basket";
-import Menu from "@/components/home/Menu";
 import RestaurantBox from "@/components/restaurantBox";
 
 const Home: NextPage = () => {
@@ -42,7 +40,7 @@ const Home: NextPage = () => {
           rounded-br-[2rem]
           rounded-bl-[2rem]
           overflow-hidden
-          bg-yellow
+          bg-primary
 
           before:content-['']
           before:absolute
@@ -111,7 +109,7 @@ const Home: NextPage = () => {
             );
           })}
         </Swiper>
-        <NavigationBar />
+        
       </div>
       <Basket products={data} />
     </main>

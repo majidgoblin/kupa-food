@@ -4,6 +4,7 @@ export interface IProduct {
     price: number;
     image: string;
     description?: string;
+    discount?:string | number;
 };
 
 export interface IDiscount {
