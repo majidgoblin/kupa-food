@@ -4,7 +4,7 @@ import ProductBox from "@/components/productBox";
 import { useQuery } from "@tanstack/react-query";
 import { NextPage } from "next";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {  FreeMode } from "swiper/modules";
+import { FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
@@ -15,6 +15,7 @@ import Basket from "@/components/basket";
 import NavigationBar from "@/components/navigationBar";
 import { useBasket } from "@/zustand/basket";
 import Menu from "@/components/home/Menu";
+import RestaurantBox from "@/components/RestaurantBox";
 
 const Home: NextPage = () => {
   //get home products
@@ -57,11 +58,11 @@ const Home: NextPage = () => {
           <SearchBox />
         </div>
       </div>
-      <div className={status ? `bg-gray-800 bg-opacity-30 px-5` : ` px-5`}>
+      <div className={`px-5`}>
         <AddressBox />
-        <Menu />
-        <span className="font-bold block text-gray-800 text-xl my-6">
-          Top of Week
+        {/* <Menu /> */}
+        <span className="font-bold text-txt-primary text-lg mt-6 mb-3 block">
+          Nearest Restaurants
         </span>
         <Swiper
           slidesPerView={2.5}
@@ -75,7 +76,7 @@ const Home: NextPage = () => {
           {data?.map((row: IProduct) => {
             return (
               <SwiperSlide key={row.id}>
-                <ProductBox
+                <RestaurantBox
                   id={row.id}
                   name={row.name}
                   price={row.price}
@@ -85,7 +86,31 @@ const Home: NextPage = () => {
             );
           })}
         </Swiper>
-
+        <span className="font-bold text-txt-primary text-lg mt-6 mb-3 block">
+          Popular Restaurants
+        </span>
+        <Swiper
+          slidesPerView={2.5}
+          spaceBetween={30}
+          freeMode={true}
+          pagination={{
+            clickable: false,
+          }}
+          modules={[FreeMode]}
+        >
+          {data?.map((row: IProduct) => {
+            return (
+              <SwiperSlide key={row.id}>
+                <RestaurantBox
+                  id={row.id}
+                  name={row.name}
+                  price={row.price}
+                  image={row.image}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
         <NavigationBar />
       </div>
       <Basket products={data} />
