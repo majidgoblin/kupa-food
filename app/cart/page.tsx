@@ -15,7 +15,7 @@ const Cart: NextPage = () => {
     const items = useCart((state) => state.items);
 
     useEffect(() => {
-        if (!!items && items[0].id !== 0)
+        if (!!items && items[0]?.id !== 0)
             setCount(items.length)
     }, [items])
 
@@ -24,7 +24,7 @@ const Cart: NextPage = () => {
     return (
         <div className='relative pb-10 overflow-scroll'>
             {
-                (  items[0].id !== 0)
+                (  items[0]?.id !== 0)
                     ?
                     <div>
                         <span className="font-bold text-lg text-gray-800 block my-3">Your Order {`(${cartCount})`}</span>

@@ -32,7 +32,7 @@ export const useCart = create<CartState>((set) => ({
         totalPrice: item.totalPrice,
       };
 
-      if (state.items[0].id !== 0) {
+      if (state.items[0]?.id !== 0) {
         return { items: [...state.items, newItem] };
       } else {
         return { items: [newItem] };
