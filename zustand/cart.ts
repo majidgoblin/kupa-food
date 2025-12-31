@@ -39,7 +39,7 @@ export const useCart = create<CartState>((set) => ({
       }
     }),
 
-  // increse items
+  // increase items
   addItem: (id) =>
     set((state) => ({
       items: state.items.map((row) => {
@@ -52,7 +52,7 @@ export const useCart = create<CartState>((set) => ({
       }),
     })),
 
-  // decrise items
+  // decrease items
   decreaseItem: (id) =>
     set((state) => ({
       items: state.items.map((row) => {
@@ -71,16 +71,7 @@ export const useCart = create<CartState>((set) => ({
       const filtered = state.items.filter((row) => row?.id !== id);
       if (filtered.length === 0) {
         return {
-          items: [
-            {
-              id: 0,
-              title: "",
-              image: "",
-              price: 0,
-              amount: 0,
-              totalPrice: 0,
-            },
-          ],
+          items: [],
         };
       }
       return { items: filtered };

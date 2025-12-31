@@ -11,24 +11,16 @@ import "swiper/css/pagination";
 import { IDiscount, IProduct } from "../types/product";
 import AddressBox from "@/components/addressBox";
 import SearchBox from "@/components/search";
-import Basket from "@/components/basket";
 import { useBasket } from "@/zustand/basket";
 import RestaurantBox from "@/components/restaurantBox";
 
 const Home: NextPage = () => {
-  //get home products
+  
   const { data } = useQuery<IProduct[]>({
     queryKey: ["homeProduct"],
     queryFn: () => fetch("/api/homeProducts.json").then((rest) => rest.json()),
   });
 
-  //get home discounts
-  const { data: discountData } = useQuery<IDiscount[], Error>({
-    queryKey: ["homeDiscouts"],
-    queryFn: () => fetch("/api/homeDiscount.json").then((rest) => rest.json()),
-  });
-
-  const status = useBasket((state) => state.status);
 
   return (
     <main className="relative h-full">
@@ -109,9 +101,7 @@ const Home: NextPage = () => {
             );
           })}
         </Swiper>
-        
       </div>
-      <Basket products={data} />
     </main>
   );
 };

@@ -1,3 +1,4 @@
+import { formatPrice } from "@/consts/formatPrice";
 import { FC } from "react"
 import { IoMdClose } from "react-icons/io";
 
@@ -25,7 +26,7 @@ const AmountButton: FC<IProps> = ({ handleDecrise, amount, handleAdd, totalPrice
                         <span onClick={handleAdd} className="font-xl">+</span>
                     </div>
                 </div>
-                <span className="text-green-400 font-bold font-lg">${totalPrice}</span>
+                <span className="text-green-400 font-bold font-lg">${formatPrice(totalPrice)}</span>
 
             </div>
         </>

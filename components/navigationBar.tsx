@@ -27,11 +27,11 @@ const NavigationBar = () => {
               isActive ? "text-primary" : "text-gray-500"
             )}
           >
-            <Icon size={20} className="" />
-            <span>
+            <Icon size={26} className="" />
+            {/* <span>
               {label}
               {id === "cart" && cartCount > 0 && ` (${cartCount})`}
-            </span>
+            </span> */}
           </Link>
         );
       })}

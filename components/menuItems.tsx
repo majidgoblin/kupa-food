@@ -18,7 +18,7 @@ const MenuItems = () => {
   ] as const;
 
   return (
-    <ul className="flex items-center justify-between mt-6">
+    <ul className="flex items-center justify-between mt-4">
       {items.map(({ id, label, icon: Icon }) => {
         const isActive = active === id;
 
@@ -30,12 +30,12 @@ const MenuItems = () => {
           >
             <div
               className={clsx(
-                "rounded-xl p-4 transition-colors duration-200",
+                "rounded-xl p-3 transition-colors duration-200",
                 isActive ? "bg-primary" : "bg-white"
               )}
             >
               <Icon
-                size={28}
+                size={23}
                 className={clsx(
                   "transition-colors duration-200",
                   isActive ? "text-white" : "text-txt-secondary"
