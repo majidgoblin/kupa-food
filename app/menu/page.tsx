@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { NextPage } from "next";
 import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
 import { useBasket } from "@/zustand/basket";
-import { BasketOverlay } from "@/components/BasketOverlay";
+import { BasketOverlay } from "@/components/basketOverlay";
 
 const Menu: NextPage = () => {
   const { data } = useQuery<IProduct[]>({
